@@ -7,19 +7,21 @@ public class BinarySearchTree {
         this.root = root;
     }
 
+
+    // return the root of the tree
     public BinaryTreeNode getRoot() {
         return root;
     }
-
+    // add new element to the tree
     public void add(BinaryTreeNode node) {
         addelement(root, node);
     }
-
+    // delete element from the tree.
     public void delete(BinaryTreeNode toDelete) {
         removeElement(root, toDelete);
     }
 
-
+    // make sure that the new element goes to thr right place
     public void addelement(BinaryTreeNode root, BinaryTreeNode toAdd) {
         if (toAdd.getElement() > root.getElement()) {
             if (root.getRightChild() == null) {
@@ -37,7 +39,7 @@ public class BinarySearchTree {
 
         }
     }
-
+    // checks fo the deleting element if it has children and deal with it .
     public BinaryTreeNode removeElement(BinaryTreeNode root, BinaryTreeNode toDelete) {
         if (root == null) return root;
         if (toDelete.getElement() > root.getElement()) {
@@ -77,7 +79,7 @@ public class BinarySearchTree {
         return root.getElement();
 
     }
-
+    // return the height of the tree.
     public int findHeight(BinaryTreeNode node) {
         if (node == null) {
             return -1;
@@ -92,7 +94,7 @@ public class BinarySearchTree {
         }
 
     }
-
+    // checks if the tree is balanced
     public boolean isBelanced() {
         if (root == null) {
             return true;
@@ -116,7 +118,7 @@ public class BinarySearchTree {
         root = balance(root);
     }
     private static final int allowed=1;
-
+    //balance the tree with allowances of 1 different in the height.
     private BinaryTreeNode balance(BinaryTreeNode node) {
         if (node==null){
             return node;
@@ -142,6 +144,9 @@ public class BinarySearchTree {
 
 
     }
+
+
+
 
     private BinaryTreeNode doubleWithRightChild(BinaryTreeNode k3) {
         k3.setRight(rotateWithleftChild(k3.getRightChild()));
